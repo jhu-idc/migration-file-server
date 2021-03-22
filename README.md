@@ -13,3 +13,8 @@ Because the container is only used by tests, it does not need to be exposed or p
   assets_image_tag=latest
   docker run --name migration-assets --network gateway --rm -d -p ${ext_assets_port}:80 ${assets_repo}/${assets_image}:${assets_image_tag}
 ```
+
+# Image creation
+
+* `make` will make the Docker image `ghcr.io/jhu-sheridan-libraries/idc-isle-dc/migration-assets`
+* `make push` will push the image to GHCR
