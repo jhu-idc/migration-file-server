@@ -16,5 +16,9 @@ Because the container is only used by tests, it does not need to be exposed or p
 
 # Image creation
 
-* `make` will make the Docker image `ghcr.io/jhu-sheridan-libraries/idc-isle-dc/migration-assets`
+The image tag will be based on the `HEAD` commit hash and the timestamp.  The `Makefile` recipe for the `init` target records the commit hash and timestamp so all subsequent commands (like push) use the same image tag.  The `make clean` command will remove this state.  Invoking `make push` (or `make image` for that matter) multiple times in a row are idempotent until a `make clean` is run.
+
+* `make image` (the default when invoking `make`) will make the Docker image `ghcr.io/jhu-sheridan-libraries/idc-isle-dc/migration-assets` tagged after the `HEAD` commit hash and timestamp
 * `make push` will push the image to GHCR
+* `make init` establishes the `HEAD` commit hash and timestamp, and is invoked automatically when `image` or `push` is invoked
+* `make clean` removes Make state including the image tag being used by `image` and `push`
