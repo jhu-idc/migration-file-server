@@ -22,3 +22,11 @@ The image tag will be based on the `HEAD` commit hash and the timestamp.  The `M
 * `make push` will push the image to GHCR
 * `make init` establishes the `HEAD` commit hash and timestamp, and is invoked automatically when `image` or `push` is invoked
 * `make clean` removes Make state including the image tag being used by `image` and `push`
+
+# GIT LFS
+
+Note that this repository uses [GIT LFS](https://git-lfs.github.com/), which needs to be installed locally using `git lfs install`. Any files added under `assets/lfs` will automatically use LFS; your git workflow does not change at all.
+
+To add additional paths or files to LFS, use `git lfs track`.
+
+
